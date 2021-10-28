@@ -3,15 +3,16 @@
 namespace App\Console\Commands;
 
 use App\Services\API\News;
+use Illuminate\Console\Command;
 
-class RefreshNewsCommand
+class RefreshNewsCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'update:news';
+    protected $signature = 'refresh:news';
 
     /**
      * The console command description.

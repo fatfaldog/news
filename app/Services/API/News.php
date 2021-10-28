@@ -11,11 +11,19 @@ class News implements NewsInterface
      * @return mixed
      */
     public function updateNews(){
-        $news_api_key = env('NEWS_API_KEY', true);
+        $date = date('Y-m-d');
 
-        $response = Http::post('http://example.com/users', [
-            'name' => 'Steve',
-            'role' => 'Network Administrator',
+        $apiRequest = Http::get('https://newsapi.org/v2/everything', [
+            'from' => $date,
+            'to' => $date,
+            'sortBy' => 'popularity',
+            'apiKey' => env('NEWS_API_KEY', true),
+            'q' => 'CRON'
         ]);
+
+        $response = json_decode($apiRequest->getBody());
+
+        dd($response);
     }
+
 }

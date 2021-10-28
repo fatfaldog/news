@@ -2,21 +2,23 @@
 
 namespace App\Console\Commands;
 
-class UpdateNewsCommand
+use App\Services\API\News;
+
+class RefreshNewsCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'update:news {source}';
+    protected $signature = 'update:news';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update news from the {source} API';
+    protected $description = 'Refresh news';
 
     /**
      * Create a new command instance.
@@ -31,11 +33,11 @@ class UpdateNewsCommand
     /**
      * Execute the console command.
      *
-     * @param  \App\Support\DripEmailer  $drip
+     * @param \App\Services\API\News $news
      * @return mixed
      */
-    public function handle(DripEmailer $drip)
+    public function handle(News $news)
     {
-        $drip->send(User::find($this->argument('user')));
+        $news->updateNews();
     }
 }

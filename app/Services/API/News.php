@@ -11,6 +11,8 @@ class News implements NewsInterface
      * @return mixed
      */
     public function updateNews(){
+        $news_api_key = env('NEWS_API_KEY', true);
+
         $response = Http::post('http://example.com/users', [
             'name' => 'Steve',
             'role' => 'Network Administrator',

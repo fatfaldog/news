@@ -33,21 +33,21 @@ class News implements ArticlesInterface
                     $article = new Article();
 
                     $article->title = $item['title'];
-                    $article->title = $item['title'];
-                    $article->title = $item['title'];
-                    $article->title = $item['title'];
+                    $article->source = $item['source']['name'];
+                    $article->author = $item['author'];
+                    $article->description = $item['description'];
+                    $article->url = $item['url'];
+                    $article->urlToImage = $item['urlToImage'];
+
+
+                    $article->publishedAt = new \DateTime('@' . strtotime($item['publishedAt'])); //TZ time format
+                    $article->content = $item['content'];
+
+                    $article->category_id = $category->id;
+                    $article->article_type = 'news';
+                    $article->save();
                 }
             }
-//        'title',
-//        'source',
-//        'author',
-//        'description',
-//        'url',
-//        'urlToImage',
-//        'publishedAt',
-//        'content',
-//        'category_id',
-//        'article_type',
         }
 
     }

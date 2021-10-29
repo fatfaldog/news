@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\API\Articles;
+use App\Services\API\Articles\News;
 use Illuminate\Console\Command;
 
 class RefreshArticlesCommand extends Command
@@ -34,10 +34,10 @@ class RefreshArticlesCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param \App\Services\API\Articles $news
+     * @param \App\Services\API\Articles\News $news
      * @return mixed
      */
-    public function handle(Articles $news)
+    public function handle(News $news)
     {
         $news->updateArticles();
     }

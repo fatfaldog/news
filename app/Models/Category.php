@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
+/**
+ * This is the model class for table "{{%categories}}".
+ *
+ * @property integer $id
+ * @property string $name
+ * @property Article[] $articles
+ */
 class Category extends Model
 {
     /**

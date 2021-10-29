@@ -13,6 +13,20 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \DB::table('categories')->insert([
+            'name' => 'NFT',
+        ]);
+
+        \DB::table('categories')->insert([
+            'name' => 'Finance',
+        ]);
+
+        \DB::table('categories')->insert([
+            'name' => 'P2P Trading',
+        ]);
+
+        \DB::table('categories')->insert([
+            'name' => 'Dash',
+        ]);
     }
 }

@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\RefreshNewsCommand::class,
+        \App\Console\Commands\RefreshArticlesCommand::class,
     ];
 
     /**
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('refresh:news')
+        $schedule->command('refresh:articles')
             ->everyFiveMinutes();
     }
 }

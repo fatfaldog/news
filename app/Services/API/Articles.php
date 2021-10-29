@@ -4,13 +4,13 @@ namespace App\Services\API;
 
 use Illuminate\Support\Facades\Http;
 
-class News implements NewsInterface
+class Articles implements ArticlesInterface
 {
     /**
-     * Update News from API
+     * Update Article from API
      * @return mixed
      */
-    public function updateNews(){
+    public function updateArticles(){
         $date = date('Y-m-d');
 
         $apiRequest = Http::get('https://newsapi.org/v2/everything', [

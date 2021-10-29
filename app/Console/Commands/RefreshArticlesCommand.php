@@ -2,24 +2,24 @@
 
 namespace App\Console\Commands;
 
-use App\Services\API\News;
+use App\Services\API\Articles;
 use Illuminate\Console\Command;
 
-class RefreshNewsCommand extends Command
+class RefreshArticlesCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'refresh:news';
+    protected $signature = 'refresh:articles';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Refresh news';
+    protected $description = 'Refresh articles';
 
     /**
      * Create a new command instance.
@@ -34,11 +34,11 @@ class RefreshNewsCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param \App\Services\API\News $news
+     * @param \App\Services\API\Articles $news
      * @return mixed
      */
-    public function handle(News $news)
+    public function handle(Articles $news)
     {
-        $news->updateNews();
+        $news->updateArticles();
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Services\API\Articles;
 
-use App\Models\Article;
+use App\Models\News;
 use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 
-class News implements ArticlesInterface
+class NewsService implements ArticlesInterface
 {
     /**
      * Update Article from API
@@ -30,7 +30,7 @@ class News implements ArticlesInterface
 
             foreach ($response['articles'] as $item) {
                 if (isset($item['source']['name'])) {
-                    $article = new Article();
+                    $article = new News();
 
                     $article->title = $item['title'];
                     $article->source = $item['source']['name'];
@@ -44,7 +44,6 @@ class News implements ArticlesInterface
                     $article->content = $item['content'];
 
                     $article->category_id = $category->id;
-                    $article->article_type = 'news';
                     $article->save();
                 }
             }

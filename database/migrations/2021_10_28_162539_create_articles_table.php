@@ -23,7 +23,7 @@ class CreateArticlesTable extends Migration
             $table->text('urlToImage')->nullable();
             $table->timestamp('publishedAt')->nullable();
             $table->text('content')->nullable();
-            $table->text('article_type');
+            $table->text('typename');
             $table->timestamps();
         });
 

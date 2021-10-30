@@ -22,7 +22,7 @@ use Laravel\Lumen\Auth\Authorizable;
  * @property string $publishedAt
  * @property string $content
  * @property integer $category_id
- * @property string $article_type
+ * @property string $typename
  * @property-read Category $category
  */
 class Article extends Model
@@ -43,7 +43,7 @@ class Article extends Model
         'publishedAt',
         'content',
         'category_id',
-        'article_type',
+        'typename',
     ];
 
     /**
@@ -54,6 +54,17 @@ class Article extends Model
     protected $hidden = [
 
     ];
+
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model){
+            $model->typename = 'article';
+        });
+
+    }
 
 
     public function category()

@@ -112,5 +112,11 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
 });
 
+//GraphQL
+$app->register(\Nuwave\Lighthouse\LighthouseServiceProvider::class);
+$app->configure('lighthouse');
+$app->register(
+    \MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class
+);
 
 return $app;

@@ -39,6 +39,6 @@ class RefreshArticlesCommand extends Command
      */
     public function handle(News $news)
     {
-        $news->updateArticles();
+        $news->download();
     }
 }

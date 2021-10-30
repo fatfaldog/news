@@ -8,5 +8,5 @@ interface ArticlesInterface
      * Update Article from API
      * @return mixed
      */
-    public function updateArticles();
+    public function download();
 }

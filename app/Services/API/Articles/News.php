@@ -12,7 +12,7 @@ class News implements ArticlesInterface
      * Update Article from API
      * @return mixed
      */
-    public function updateArticles()
+    public function download()
     {
         $date = date('Y-m-d');
 

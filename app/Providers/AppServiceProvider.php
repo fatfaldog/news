@@ -16,5 +16,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Services\API\ArticlesInterface'
         );
+
+
     }
 }

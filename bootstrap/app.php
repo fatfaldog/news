@@ -92,9 +92,18 @@ $app->configure('app');
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(\SwaggerLume\ServiceProvider::class);
+
+//GraphQL
+$app->register(\Nuwave\Lighthouse\LighthouseServiceProvider::class);
+$app->configure('lighthouse');
+$app->register(
+    \MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class
+);
+
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
@@ -112,11 +121,5 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
 });
 
-//GraphQL
-$app->register(\Nuwave\Lighthouse\LighthouseServiceProvider::class);
-$app->configure('lighthouse');
-$app->register(
-    \MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class
-);
 
 return $app;

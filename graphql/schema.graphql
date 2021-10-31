@@ -5,15 +5,45 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 
-
-type Article {
+#For Authorization
+type User {
     id: ID!
-    title: String!
-    created_at: DateTime!
-    updated_at: DateTime!
+    name: String!
+    email: String!
 }
 
+#Article Category
+type Category {
+    id: ID!
+    name: String!
+}
+
+
+type News {
+    id: ID!
+    title: String!
+    content: String!
+    title: String!
+    source: String!
+    author: String!
+    description: String!
+    url: String!
+    urlToImage: String!
+    publishedAt: String!
+    content: String!
+    category: Category! @belongsTo
+    typename: String!
+}
+
+
 type Query {
-    allnews: [Article!]! @paginate
-    news(id: ID @eq): Article @find
+    user(id: ID!): User
+    users: [User!]!
+
+    news(id: ID!): News
+    allNews: [News!]!
+}
+
+type Mutation {
+    createUser(name: String!, email: String!, password: String!): User
 }

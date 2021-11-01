@@ -55,32 +55,32 @@ class ArticleController extends Controller
 
         $classname = 'App\\Models\\' . $classname;
 
-        $query = $classname::query();
+        $query = $classname::with('category');
 
         if ($request->has('q')) {
             $param = $request->input('q');
 
-            $query = $query->searchText($param);
+             $query->searchText($param);
         }
 
         if ($request->has('from_date')) {
 
             $param = $request->input('from_date');
-            $query = $query->fromDate($param);
+             $query->fromDate($param);
         }
 
         if ($request->has('to_date')) {
             $param = $request->input('to_date');
-            $query = $query->toDate('typename', $param);
+             $query->toDate('typename', $param);
         }
 
 
         if ($request->has('typename')) {
             $param = $request->input('typename');
-            $query = $query->typeName('typename', $param);
+             $query->typeName('typename', $param);
         }
 
-        $articles = $classname::paginate(15);
+        $articles = $query->paginate(15);
 
         return response()->json(
              $articles

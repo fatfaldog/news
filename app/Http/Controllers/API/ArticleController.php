@@ -26,8 +26,7 @@ use App\Models\News;
  * @OA\Response(
  *     response=200,
  *     description="Success",
- *     @OA\JsonContent(
- *     )
+ *     @OA\JsonContent(type="array", @OA\Items(ref="#Article"))
  *  )
  * )
  */
@@ -54,7 +53,7 @@ class ArticleController extends Controller
 
         $classname = 'App\\Models\\' . $classname;
 
-        $query = $classname::with('category');
+        $query = $classname::with(['category', 'author']);
 
         if ($request->has('q')) {
             $query->searchText($request->input('q'));

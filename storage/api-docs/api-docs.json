@@ -29,7 +29,12 @@
                         "description": "Success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#Article"
+                                    }
+                                }
                             }
                         }
                     }

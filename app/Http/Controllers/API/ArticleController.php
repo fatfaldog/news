@@ -7,7 +7,6 @@ use App\Models\News;
 
 /**
  * @OA\Info(title="Article API", version="0.1")
-
  * @OA\Get(
  * path="/api/articles/search",
  * summary="List of articles",
@@ -58,32 +57,22 @@ class ArticleController extends Controller
         $query = $classname::with('category');
 
         if ($request->has('q')) {
-            $param = $request->input('q');
-
-             $query->searchText($param);
+            $query->searchText($request->input('q'));
         }
 
         if ($request->has('from_date')) {
-
-            $param = $request->input('from_date');
-             $query->fromDate($param);
+            $query->fromDate($request->input('from_date'));
         }
 
         if ($request->has('to_date')) {
-            $param = $request->input('to_date');
-             $query->toDate('typename', $param);
+            $query->toDate($request->input('to_date'));
         }
 
-
-        if ($request->has('typename')) {
-            $param = $request->input('typename');
-             $query->typeName('typename', $param);
-        }
 
         $articles = $query->paginate(15);
 
         return response()->json(
-             $articles
+            $articles
         );
     }
 }

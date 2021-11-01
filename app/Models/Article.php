@@ -80,7 +80,7 @@ class Article extends Model
 
     public function scopeSearchText($query, $param)
     {
-        return (function ($query) use ($param) {
+        return $query->where(function ($query) use ($param) {
             $query
                 ->orWhere('title', 'like', '%' . $param . '%')
                 ->orWhere('content', 'like', '%' . $param . '%')

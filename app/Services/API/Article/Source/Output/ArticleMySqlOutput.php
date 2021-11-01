@@ -4,6 +4,7 @@ namespace App\Services\API\Article\Source\Output;
 
 use App\Models\Author;
 use App\Models\News;
+use Exception;
 
 
 class ArticleMySqlOutput implements ArticleOutputInterface
@@ -11,10 +12,10 @@ class ArticleMySqlOutput implements ArticleOutputInterface
     /**
      * Save Articles
      * @param array $array Array
-     * @param integer $category_id Category
+     * @param string $category_id Category
      *
-     * @return mixed
-     * @throws \Exception
+     * @return void
+     * @throws Exception
      */
     public function execute(array $array, string $category_id)
     {

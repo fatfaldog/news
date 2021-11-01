@@ -9,13 +9,14 @@ use App\Models\Category;
 use App\Services\API\Article\Source\Input\ArticleApiInput;
 use App\Services\API\Article\Source\Converter\ArticleMysqlConverter;
 use App\Services\API\Article\Source\Output\ArticleMySqlOutput;
+use Exception;
 use Illuminate\Support\Facades\Http;
 
 class ArticleService implements ArticlesInterface
 {
-    private $converter;
-    private $input;
-    private $output;
+    private ArticleMysqlConverter $converter;
+    private ArticleApiInput $input;
+    private ArticleMySqlOutput $output;
 
     public function __construct(ArticleMysqlConverter $converter, ArticleMySqlOutput $output, ArticleApiInput $input)
     {
@@ -26,8 +27,8 @@ class ArticleService implements ArticlesInterface
 
     /**
      * Update Article from API
-     * @return mixed
-     * @throws \Exception
+     * @return void
+     * @throws Exception
      */
     public function handle()
     {

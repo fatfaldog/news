@@ -2,6 +2,7 @@
 
 namespace App\Services\API\Article;
 
+use App\Models\Article;
 use App\Models\News;
 use App\Models\Category;
 use App\Services\API\Article\Source\Input\ArticleApiInput;
@@ -25,12 +26,16 @@ class ArticleService implements ArticlesInterface
     /**
      * Update Article from API
      * @return mixed
+     * @throws \Exception
      */
     public function handle()
     {
         $date = date('Y-m-d');
 
         $categories = Category::all();
+
+        Article::query()->delete();
+
         foreach ($categories as $category) {
             $result = $this->input->load($category->name, $date, $date, 'popularity');
 

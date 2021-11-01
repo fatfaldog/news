@@ -74,4 +74,36 @@ class Article extends Model
     }
 
 
+    public function scopeSearchText($query, $param)
+    {
+        return (function ($query) use ($param) {
+            $query
+                ->orWhere('title', 'like', '%' . $param . '%')
+                ->orWhere('content', 'like', '%' . $param . '%')
+                ->orWhere('description', 'like', '%' . $param . '%');
+
+            $query->orWhereHas('author', function ($q) use ($param) {
+                $q->where('name', 'like', '%' . $param . '%');
+            });
+
+            $query->orWhereHas('category', function ($q) use ($param) {
+                $q->where('name', 'like', '%' . $param . '%');
+            });
+        });
+    }
+
+    public function scopeFromDate($query, $param)
+    {
+        return $query->where('publishedAt', '>=', $param);
+    }
+
+    public function scopeToDate($query, $param)
+    {
+        return $query->where('publishedAt', '<=', $param);
+    }
+
+    public function scopeTypeName($query, $param)
+    {
+        return $query->where('typename', $param);
+    }
 }

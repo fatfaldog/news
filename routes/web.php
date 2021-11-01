@@ -18,5 +18,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('news/filter',  ['uses' => 'NewsController@filter']);
+    $router->get('articles/search',  ['uses' => 'API\ArticleController@search']);
 });

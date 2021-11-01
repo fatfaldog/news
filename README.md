@@ -35,9 +35,11 @@
 Если интересует GraphQL в проекте ,то открыть страницу проверки  Graph QL API `http://localhost/graphql-playground`, то есть добавляется в URL справа`/graphql-playground`
 ![Картинка](/public/support/graphql_playground.png)
 
-Статьи
+**Структура БД**
 
-`create table articles
+```mysql 
+#Статьи
+create table articles
 (
 id          bigint unsigned auto_increment
 primary key,
@@ -60,7 +62,7 @@ foreign key (category_id) references categories (id)
 )`
 
 
-Авторы
+#Авторы
 `create table authors
 (
 id         bigint unsigned auto_increment
@@ -68,10 +70,10 @@ primary key,
 name       varchar(255) not null,
 created_at timestamp    null,
 updated_at timestamp    null
-)`
+)
 
 
-Категории статей
+#Категории статей
 `create table categories
 (
 id         bigint unsigned auto_increment
@@ -79,5 +81,5 @@ primary key,
 name       varchar(255) not null,
 created_at timestamp    null,
 updated_at timestamp    null
-)`
-
+)
+```

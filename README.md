@@ -19,5 +19,7 @@ php artisan migrate
 3. Открыть страницу проверки  Graph QL API `http://localhost/graphql-playground`, то есть добавляется в URL справа`/graphql-playground`
    ![Картинка](/public/support/graphql_playground.png)
 
-
+4. Генерируется Swagger
+`\storage\api-docs.json`
+    
    

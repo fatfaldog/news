@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\API\Article\Source\Converter;
+namespace App\Services\API\Article\Source\Input;
 
 interface ArticleInputInterface
 {

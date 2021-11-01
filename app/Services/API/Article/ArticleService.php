@@ -5,8 +5,8 @@ namespace App\Services\API\Article;
 use App\Models\News;
 use App\Models\Category;
 use App\Services\API\Article\Source\Input\ArticleApiInput;
-use App\Services\API\Article\Source\Input\ArticleMySqlConverter;
-use App\Services\API\Article\Source\Input\ArticleMySqlOutput;
+use App\Services\API\Article\Source\Converter\ArticleMysqlConverter;
+use App\Services\API\Article\Source\Output\ArticleMySqlOutput;
 use Illuminate\Support\Facades\Http;
 
 class ArticleService implements ArticlesInterface
@@ -15,7 +15,7 @@ class ArticleService implements ArticlesInterface
     private $input;
     private $output;
 
-    public function __construct(ArticleMySqlConverter $converter, ArticleMySqlOutput $output, ArticleApiInput $input)
+    public function __construct(ArticleMysqlConverter $converter, ArticleMySqlOutput $output, ArticleApiInput $input)
     {
         $this->converter = $converter;
         $this->input = $input;

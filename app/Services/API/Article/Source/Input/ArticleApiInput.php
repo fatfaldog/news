@@ -2,8 +2,6 @@
 
 namespace App\Services\API\Article\Source\Input;
 
-use App\Models\Category;
-use App\Services\API\Article\Source\Converter\ArticleInputInterface;
 use Illuminate\Support\Facades\Http;
 
 class ArticleApiInput implements ArticleInputInterface

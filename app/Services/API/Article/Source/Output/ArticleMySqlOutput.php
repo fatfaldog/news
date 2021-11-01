@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\API\Article\Source\Input;
+namespace App\Services\API\Article\Source\Output;
 
 use App\Models\News;
-use App\Services\API\Article\Source\Converter\ArticleOutputInterface;
+
 
 class ArticleMySqlOutput implements  ArticleOutputInterface
 {

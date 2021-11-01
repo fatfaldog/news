@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Services\API\Article\Source\Input;
+namespace App\Services\API\Article\Source\Converter;
 
-use App\Services\API\Article\Source\Converter\ArticleConverterInterface;
-
-class ArticleMySqlConverter implements ArticleConverterInterface
+class ArticleMysqlConverter implements ArticleConverterInterface
 {
     /**
      * Convert json to Array

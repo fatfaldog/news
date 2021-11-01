@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Services\API\Article\Source\Converter\ArticleConverterInterface;
-use App\Services\API\Article\Source\Converter\ArticleInputInterface;
-use App\Services\API\Article\Source\Converter\ArticleOutputInterface;
+use App\Services\API\Article\Source\Input\ArticleInputInterface;
+use App\Services\API\Article\Source\Output\ArticleOutputInterface;
 use Illuminate\Support\ServiceProvider;
 
 class ArticleServiceProvider extends ServiceProvider

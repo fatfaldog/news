@@ -22,4 +22,7 @@ php artisan migrate
 4. Генерируется Swagger
 `\storage\api-docs.json`
     
-   
+5. Тесты `./vendor/bin/phpunit`
+
+
+

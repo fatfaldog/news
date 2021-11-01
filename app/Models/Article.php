@@ -15,7 +15,7 @@ use Laravel\Lumen\Auth\Authorizable;
  * @property integer $id
  * @property string $title
  * @property string $source
- * @property string $author
+ * @property integer $author_id
  * @property string $description
  * @property string $url
  * @property string $urlToImage
@@ -27,6 +27,7 @@ use Laravel\Lumen\Auth\Authorizable;
  */
 class Article extends Model
 {
+    protected $table = 'articles';
 
     /**
      * The attributes that are mass assignable.
@@ -60,7 +61,7 @@ class Article extends Model
     {
         parent::boot();
 
-        self::creating(function($model){
+        self::creating(function ($model) {
             $model->typename = 'article';
         });
 
@@ -71,7 +72,6 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
 
 
 }

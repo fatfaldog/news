@@ -12,6 +12,6 @@ class ArticleMysqlConverter implements ArticleConverterInterface
     {
         $response = json_decode($json, true);
 
-        return $response;
+        return $response['articles'];
     }
 }

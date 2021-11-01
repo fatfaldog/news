@@ -33,10 +33,11 @@ class ArticleService implements ArticlesInterface
         $categories = Category::all();
         foreach ($categories as $category) {
             $result = $this->input->load($category->name, $date, $date, 'popularity');
-            $arr = $this->converter->convert($result);
-            $this->output->execute($arr);
-        }
 
+            $arr = $this->converter->convert($result);
+
+            $this->output->execute($arr, $category->id);
+        }
     }
 
 }

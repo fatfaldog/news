@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('source')->nullable();
-            $table->text('author')->nullable();
+            $table->unsignedBigInteger('author_id')->nullable();
             $table->text('description')->nullable();
             $table->string('url')->nullable();
             $table->text('urlToImage')->nullable();
@@ -27,6 +27,12 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
 
+
+        Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
 
     }
 

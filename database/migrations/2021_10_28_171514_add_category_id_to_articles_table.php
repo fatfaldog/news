@@ -16,6 +16,7 @@ class AddCategoryIdToArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('author_id')->references('id')->on('authors');
         });
     }
 
@@ -29,6 +30,7 @@ class AddCategoryIdToArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('category_id');
             $table->dropColumn('category_id');
+            $table->dropForeign('author_id');
         });
     }
 }

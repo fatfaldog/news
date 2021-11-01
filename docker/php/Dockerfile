@@ -1,6 +1,4 @@
 FROM php:8.0-fpm-bullseye
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
 LABEL maintainer="ucan-lab <yes@u-can.pro>"
 SHELL ["/bin/bash", "-oeux", "pipefail", "-c"]
 

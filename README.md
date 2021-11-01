@@ -16,5 +16,8 @@ php artisan migrate
    - `sudo chmod -R 777 vendor/`
    - `sudo chmod -R 777 storage/framework/views`
    
-3. Открыть страницу проверки API `http://localhost/graphql-playground`, то есть добавляется в URL справа`/graphql-playground`
+3. Открыть страницу проверки  Graph QL API `http://localhost/graphql-playground`, то есть добавляется в URL справа`/graphql-playground`
    ![Картинка](/public/support/graphql_playground.png)
+
+
+   

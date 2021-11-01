@@ -55,7 +55,7 @@ class ArticleController extends Controller
 
         $classname = 'App\\Models\\' . $classname;
 
-        $query = $classname::paginate(15);
+        $query = $classname::query();
 
         if ($request->has('q')) {
             $param = $request->input('q');

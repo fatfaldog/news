@@ -10,9 +10,34 @@ class FeatureTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testArticlesSearch()
     {
         $this->get('api/articles/search');
+
+        $this->seeStatusCode(200);
+        $this->seeJsonStructure([
+            'data' => ['*' =>
+                [
+                    'title',
+                    'content',
+                    'description',
+                ],
+            ],
+
+        ]);
+
+    }
+
+
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testArticlesSearchQuery()
+    {
+        $this->get('api/articles/search?q=NFT');
 
         $this->seeStatusCode(200);
         $this->seeJsonStructure([

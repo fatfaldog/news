@@ -86,7 +86,7 @@ updated_at timestamp    null
 
 **Swagger-документация**
 Она есть в коде но все равно выложил
-```json
+```php
 [
     'api' => [
         /*

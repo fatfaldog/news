@@ -17,8 +17,35 @@ use App\Models\News;
  * @OA\Parameter(
  *    name="q",
  *    in="path",
- *    required=true,
- *    example="1",
+ *    required=false,
+ *    example="NFT",
+ *    @OA\Schema(
+ *       type="string",
+ *    )
+ * ),
+ * @OA\Parameter(
+ *    name="from_date",
+ *    in="path",
+ *    required=false,
+ *    example="2021-11-02",
+ *    @OA\Schema(
+ *       type="string",
+ *    )
+ * ),
+ * @OA\Parameter(
+ *    name="to_date",
+ *    in="path",
+ *    required=false,
+ *    example="2021-11-02",
+ *    @OA\Schema(
+ *       type="string",
+ *    )
+ * ),
+ * @OA\Parameter(
+ *    name="typename",
+ *    in="path",
+ *    required=false,
+ *    example="news",
  *    @OA\Schema(
  *       type="string",
  *    )

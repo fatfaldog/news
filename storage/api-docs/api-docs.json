@@ -17,11 +17,38 @@
                     {
                         "name": "q",
                         "in": "path",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         },
-                        "example": "1"
+                        "example": "NFT"
+                    },
+                    {
+                        "name": "from_date",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2021-11-02"
+                    },
+                    {
+                        "name": "to_date",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2021-11-02"
+                    },
+                    {
+                        "name": "typename",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "news"
                     }
                 ],
                 "responses": {

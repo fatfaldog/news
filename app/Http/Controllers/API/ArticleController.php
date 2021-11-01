@@ -5,6 +5,33 @@ namespace App\Http\Controllers\API;
 use App\Models\Article;
 use App\Models\News;
 
+/**
+ * @OA\Info(title="Article API", version="0.1")
+
+ * @OA\Get(
+ * path="/api/articles/search",
+ * summary="List of articles",
+ * description="List of articles",
+ * operationId="articleList",
+ * tags={"article"},
+ * security={ {"bearer": {} }},
+ * @OA\Parameter(
+ *    name="q",
+ *    in="path",
+ *    required=true,
+ *    example="1",
+ *    @OA\Schema(
+ *       type="string",
+ *    )
+ * ),
+ * @OA\Response(
+ *     response=200,
+ *     description="Success",
+ *     @OA\JsonContent(
+ *     )
+ *  )
+ * )
+ */
 class ArticleController extends Controller
 {
     /**
@@ -21,12 +48,12 @@ class ArticleController extends Controller
     {
         $classname = 'Article';
         if ($request->has('typename')) {
-            if( $request->input('typename')== 'news'){
+            if ($request->input('typename') == 'news') {
                 $classname = 'News';
             }
         }
 
-        $classname = 'App\\Models\\'.$classname;
+        $classname = 'App\\Models\\' . $classname;
 
         $query = $classname::query()->paginate(15);
 

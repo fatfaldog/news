@@ -55,7 +55,7 @@ class ArticleController extends Controller
 
         $classname = 'App\\Models\\' . $classname;
 
-        $query = $classname::query();
+        $query = $classname::paginate(15);
 
         if ($request->has('q')) {
             $param = $request->input('q');
@@ -80,10 +80,10 @@ class ArticleController extends Controller
             $query = $query->typeName('typename', $param);
         }
 
-        $articles = $query->get();
+        $articles = $classname::paginate(15);
 
-        return response()->json([
-            'articles' => $articles
-        ]);
+        return response()->json(
+             $articles
+        );
     }
 }

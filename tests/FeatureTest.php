@@ -21,22 +21,10 @@ class FeatureTest extends TestCase
                     'title',
                     'content',
                     'description',
-                ]
+                ],
             ],
-            'meta' => [
-                '*' => [
-                    'total',
-                    'count',
-                    'per_page',
-                    'current_page',
-                    'total_pages',
-                    'links',
-                ]
-            ]
+
         ]);
 
-       /* $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
-        );*/
     }
 }

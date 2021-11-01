@@ -3,6 +3,7 @@
 namespace App\Services\API\Article;
 
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\News;
 use App\Models\Category;
 use App\Services\API\Article\Source\Input\ArticleApiInput;
@@ -35,6 +36,7 @@ class ArticleService implements ArticlesInterface
         $categories = Category::all();
 
         Article::query()->delete();
+        Author::query()->delete();
 
         foreach ($categories as $category) {
             $result = $this->input->load($category->name, $date, $date, 'popularity');

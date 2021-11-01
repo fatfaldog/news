@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\API\Articles;
+namespace App\Services\API\Article;
 
 interface ArticlesInterface
 {
@@ -8,5 +8,5 @@ interface ArticlesInterface
      * Update Article from API
      * @return mixed
      */
-    public function download();
+    public function handle();
 }

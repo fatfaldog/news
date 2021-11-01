@@ -68,7 +68,6 @@ class ArticleController extends Controller
             $query->toDate($request->input('to_date'));
         }
 
-
         $articles = $query->paginate(15);
 
         return response()->json(

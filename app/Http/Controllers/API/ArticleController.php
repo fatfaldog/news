@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Article;
+use App\Models\News;
 
 class ArticleController extends Controller
 {
@@ -18,7 +19,16 @@ class ArticleController extends Controller
 
     public function search(\Illuminate\Http\Request $request)
     {
-        $query = Article::paginate(15);
+        $classname = 'Article';
+        if ($request->has('typename')) {
+            if( $request->input('typename')== 'news'){
+                $classname = 'News';
+            }
+        }
+
+        $classname = 'App\\Models\\'.$classname;
+
+        $query = $classname::query()->paginate(15);
 
         if ($request->has('q')) {
             $param = $request->input('q');

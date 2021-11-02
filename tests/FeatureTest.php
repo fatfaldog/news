@@ -99,4 +99,16 @@ class FeatureTest extends TestCase
         ]);
 
     }
+
+
+
+    /**
+     * Refresh news command test
+     *
+     * @return void
+     */
+    public function testArtisanCommand()
+    {
+        $this->assertEquals($this->artisan('article:refresh'),0);
+    }
 }

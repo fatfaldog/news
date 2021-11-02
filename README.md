@@ -3,34 +3,35 @@
 ## Docker
 1. Постройка докером `docker-compose up -d --build`
 
-2. Вход в контейнер`docker exec -ti articles-app-1 /bin/bash`
+2. Вход в контейнер `docker-compose exec app /bin/bash`
 
-3. Миграция `php artisan migrate`
+3. Установка зависимостей проекта `composer install`
 
-4. Чтобы загрузить тестовые категории. Выполняется в контейнере
+4. Миграция `php artisan migrate`
+
+5. Чтобы загрузить тестовые категории. Выполняется в контейнере
 `php artisan db:seed`
 
 Запуск контейнеров:
-5. `docker-compose up -d`
+6. `docker-compose up -d`
 
-6. Установить доступы к папкам
+7. Установить доступы к папкам
    - `sudo chmod -R 777 storage/logs`
    - `sudo chmod -R 777 vendor/`
    - `sudo chmod -R 777 storage/framework/views`
-   
 
 
-7. Генерируется Swagger для описания API
+8. Генерируется Swagger для описания API
 Команда `php artisan swagger:generate`
 `\storage\api-docs.json`
 
-8. Команда для загрузки с `https://newsapi.org/v2/everything` статей
+9. Команда для загрузки с `https://newsapi.org/v2/everything` статей
 `php artisan article:refresh`
-Это основная команда. В ней выполняется парсинг. 
-   
-9. Запуск тестов `./vendor/bin/phpunit`. Модульные и функциональные. При наличии данных.
+Это основная команда. В ней выполняется парсинг.
 
-10. Настроено обновление каждые 4 часа по CRON. CRON нужно настраивать
+10. Запуск тестов `./vendor/bin/phpunit`. Модульные и функциональные. При наличии данных.
+
+11. Настроено обновление каждые 4 часа по CRON. CRON нужно настраивать
 ```php
     $schedule->command('article:refresh')->everyFourHours();
 ```
@@ -43,7 +44,7 @@
 
 **Структура БД**
 
-```mysql 
+```mysql
 #Статьи
 create table articles
 (
@@ -179,7 +180,7 @@ updated_at timestamp    null
 query
 {
   allnews
-{   
+{
   title
   content
   category

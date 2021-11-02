@@ -36,6 +36,6 @@ type News {
 
 type Query {
     news(id: ID!): News
-    allnews: [News!]!
+    allnews: [News!]! @all
 }
 

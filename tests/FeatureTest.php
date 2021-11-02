@@ -111,4 +111,42 @@ class FeatureTest extends TestCase
     {
         $this->assertEquals($this->artisan('article:refresh'),0);
     }
+
+
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testGraphQL()
+    {
+        $this->get('/graphql',
+            [
+                'query' => 'query
+{
+  allnews
+{
+  title
+  content
+  category
+  {
+      name
+  }
+  author
+  {
+      name
+  }
+  source
+  url
+  publishedAt
+}
+}'
+
+            ]);
+
+        $this->seeStatusCode(200);
+
+    }
+
 }

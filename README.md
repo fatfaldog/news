@@ -24,11 +24,11 @@
 Команда `php artisan swagger:generate`
 `\storage\api-docs.json`
 
-8. Команда дял загрузки с `https://newsapi.org/v2/everything` статей
+8. Команда для загрузки с `https://newsapi.org/v2/everything` статей
 `php artisan article:refresh`
 Это основная команда. В ней выполняется парсинг. 
    
-9. Тесты `./vendor/bin/phpunit`
+9. Запуск тестов `./vendor/bin/phpunit`. Модульные и функциональные. При наличии данных.
 
 10. Настроено обновление каждые 4 часа по CRON. CRON нужно настраивать
 ```php

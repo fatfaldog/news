@@ -24,6 +24,7 @@ use Laravel\Lumen\Auth\Authorizable;
  * @property integer $category_id
  * @property string $typename
  * @property-read Category $category
+ * @property-read Author $author
  */
 class Article extends Model
 {

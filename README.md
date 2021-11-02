@@ -184,7 +184,7 @@ query
   content
   category
   {
-		name
+    name
   }
   author
   {

@@ -115,7 +115,7 @@ class FeatureTest extends TestCase
 
 
     /**
-     * A basic test example.
+     * GraphQL query test
      *
      * @return void
      */

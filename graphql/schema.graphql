@@ -23,7 +23,7 @@ type News {
     title: String!
     content: String!
     source: String!
-    author: Author! @belongsTo
+    author: Author @belongsTo
     description: String!
     url: String!
     urlToImage: String!

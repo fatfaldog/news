@@ -28,12 +28,18 @@
 `php artisan article:refresh`
 Это основная команда. В ней выполняется парсинг. 
    
-10. Тесты `./vendor/bin/phpunit`
+9. Тесты `./vendor/bin/phpunit`
 
+10. Настроено обновление каждые 4 часа по CRON. CRON нужно настраивать
+```php
+    $schedule->command('article:refresh')->everyFourHours();
+```
 
 
 Если интересует GraphQL в проекте ,то открыть страницу проверки  Graph QL API `http://localhost/graphql-playground`, то есть добавляется в URL справа`/graphql-playground`
 ![Картинка](/public/support/graphql_playground.png)
+Можно и по команде
+`php artisan article:refresh`
 
 **Структура БД**
 
@@ -165,4 +171,62 @@ updated_at timestamp    null
     }
 }
 
+```
+
+
+**GraphQL Query**
+```json
+query
+{
+  allnews
+{   
+  title
+  content
+  category
+  {
+		name
+  }
+  author
+  {
+    name
+  }
+  source
+  url
+  publishedAt
+}
+}
+
+```
+
+Result:
+```json
+{
+  "data": {
+    "allnews": [
+      {
+        "title": "Meta’s Andrew Bosworth on moving Facebook to the metaverse",
+        "content": "Grayson Blackmon\r\n\n \n\n\n ‘The magnitude of technological shifts that we are trying to manifest here hasn’t been attempted in a long time’ Last week, Facebook announced a major corporate rebrand by cha… [+38546 chars]",
+        "category": {
+          "name": "NFT"
+        },
+        "author": {
+          "name": "Nilay Patel"
+        },
+        "source": "The Verge",
+        "url": "https://www.theverge.com/22752986/meta-facebook-andrew-bosworth-interview-metaverse-vr-ar",
+        "publishedAt": "2021-11-01 13:15:00"
+      },
+      {
+        "title": "Metaverse pioneers unimpressed by Facebook rebrand - Reuters",
+        "content": "LONDON, Nov 1 (Reuters) - Early adopters of the virtual worlds known as the metaverse criticised Facebooks rebranding as an attempt to capitalise on growing buzz over a concept that it did not create… [+3186 chars]",
+        "category": {
+          "name": "NFT"
+        },
+        "author": {
+          "name": "Elizabeth Howcroft"
+        },
+        "source": "Reuters",
+        "url": "https://www.reuters.com/article/facebook-connect-metaverse-idUSL8N2RP6YT",
+        "publishedAt": "2021-11-01 10:01:00"
+      },
 ```
